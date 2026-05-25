@@ -1,0 +1,32 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        
+        int[] people = new int[n];
+        for(int i = 0; i<n; i++){
+        people[i] = sc.nextInt();      
+        } 
+            int limit = sc.nextInt();
+         Arrays.sort(people);   
+         int count = 0;  
+         int low = 0;
+         int high = n -1;   
+         while(low <= high){
+                if(people[low] + people[high] <= limit){
+                        count++;
+                        low++;
+                        high--;
+                }
+                 else{
+                         count++;
+                         high--;
+                 }
+         }   
+            System.out.print(count);
+    }
+}
